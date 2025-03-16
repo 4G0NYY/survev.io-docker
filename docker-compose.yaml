@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  survev:
+    build: .
+    container_name: survev-server
+    ports:
+      - "8008:8008"
+      - "4443:4443"
+    restart: unless-stopped
+    volumes:
+      - ./data:/opt/survev/data  # Optional: Persist data
+    environment:
+      - NODE_ENV=production
